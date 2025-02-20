@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Chat Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="gradient-sphere"></div>
+        <div class="gradient-sphere"></div>
+        <div class="gradient-sphere"></div>
+    </div>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <i class="fas fa-brain"></i>
+            </div>
+            <h1>PDF Chat Assistant</h1>
+            <p>Powered by AI to answer your questions</p>
+        </div>
+        <div class="header-decoration">
+            <div class="geometric-shape"></div>
+            <div class="geometric-shape"></div>
+            <div class="geometric-shape"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="upload-section" id="uploadSection">
+            <div class="section-header">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <h2>Upload Your PDF</h2>
+            </div>
+            
+            <div class="upload-area" id="dropZone">
+                <input type="file" id="pdfUpload" accept="application/pdf" onchange="handleFileSelect(event)">
+                <label for="pdfUpload">
+                    <div class="upload-illustration">
+                        <i class="fas fa-file-pdf main-icon"></i>
+                        <i class="fas fa-arrow-up upload-arrow"></i>
+                    </div>
+                    <span>Drop your PDF here or click to browse</span>
+                    <small>Processing time may vary based on file size</small>
+                </label>
+            </div>
+
+            <div class="file-info" id="fileInfo" style="display: none;">
+                <div class="file-icon">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="file-details">
+                    <span class="file-name"></span>
+                    <div class="file-actions">
+                        <button class="remove-file" onclick="removeFile()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="upload-progress" id="uploadProgress" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-text">Uploading...</div>
+            </div>
+        </div>
+
+        <div class="question-section" id="questionSection" style="display: none;">
+            <div class="section-header">
+                <i class="fas fa-comments"></i>
+                <h2>Ask Questions</h2>
+            </div>
+            
+            <div class="question-container">
+                <div class="input-group">
+                    <i class="fas fa-search"></i>
+                    <input type="text" 
+                           id="question" 
+                           placeholder="Ask any question about your PDF..." 
+                           onkeypress="handleEnter(event)">
+                    <button onclick="askQuestion()" class="ask-button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="answer-section" id="answerSection" style="display: none;">
+            <div class="section-header">
+                <i class="fas fa-robot"></i>
+                <h2>AI Response</h2>
+            </div>
+            <div class="answer-content"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Made with <i class="fas fa-heart"></i> by Uttam Kumar</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
