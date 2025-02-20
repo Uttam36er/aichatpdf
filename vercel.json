@@ -6,8 +6,20 @@
             "use": "@vercel/python"
         },
         {
-            "src": "static/**",
-            "use": "@vercel/static"
+            "src": "gradio_gemini.py",
+            "use": "@vercel/python"
+        },
+        {
+            "src": "gradio_rag.py",
+            "use": "@vercel/python"
+        },
+        {
+            "src": "gradio_streaming.py",
+            "use": "@vercel/python"
+        },
+        {
+            "src": "rag.py",
+            "use": "@vercel/python"
         },
         {
             "src": "index.html",
@@ -39,6 +51,18 @@
             "dest": "app.py"
         },
         {
+            "src": "/gradio",
+            "dest": "gradio_gemini.py"
+        },
+        {
+            "src": "/rag",
+            "dest": "gradio_rag.py"
+        },
+        {
+            "src": "/streaming",
+            "dest": "gradio_streaming.py"
+        },
+        {
             "src": "/script.js",
             "dest": "/script.js"
         },
@@ -49,29 +73,6 @@
         {
             "src": "/",
             "dest": "/index.html"
-        },
-        {
-            "src": "/uploads/(.*)",
-            "dest": "/uploads/$1"
-        },
-        {
-            "src": "/vector_store/(.*)",
-            "dest": "/vector_store/$1"
         }
-    ],
-    "env": {
-        "PYTHON_VERSION": "3.9"
-    },
-    "functions": {
-        "app.py": {
-            "memory": 1024,
-            "maxDuration": 60
-        }
-    },
-    "outputs": {
-        "dir": [
-            "uploads",
-            "vector_store"
-        ]
-    }
+    ]
 }
