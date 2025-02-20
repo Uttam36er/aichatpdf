@@ -3,23 +3,27 @@
     "builds": [
         {
             "src": "app.py",
-            "use": "@vercel/python"
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "15mb",
+                "runtime": "python3.9"
+            }
         },
         {
-            "src": "gradio_gemini.py",
-            "use": "@vercel/python"
-        },
-        {
-            "src": "gradio_rag.py",
-            "use": "@vercel/python"
-        },
-        {
-            "src": "gradio_streaming.py",
-            "use": "@vercel/python"
+            "src": "gradio_*.py",
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "15mb",
+                "runtime": "python3.9"
+            }
         },
         {
             "src": "rag.py",
-            "use": "@vercel/python"
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "15mb",
+                "runtime": "python3.9"
+            }
         },
         {
             "src": "index.html",
@@ -74,5 +78,8 @@
             "src": "/",
             "dest": "/index.html"
         }
-    ]
+    ],
+    "env": {
+        "PYTHON_VERSION": "3.9"
+    }
 }
